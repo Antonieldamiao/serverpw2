@@ -58,19 +58,12 @@ class ContactCtrl {
         return resp.status(500).json({ MENSAGEM: 'ERRO AO BUSCAR CONTATO' });
     }
     static async delete(req, resp) {
-        const { id, token } = req.body;
-        const data = (0, functions_1.decryptObject)(token);
-        if (data != null) {
-            if ((0, functions_1.verifyToken)(`${data.token}`)) {
-                const situation = await contactdao_1.default.delete(Number(id));
-                if (situation) {
-                    return resp
-                        .status(204)
-                        .json({ MENSAGEM: 'CONTATO EXCLUIDO COM SUCESSO' });
-                }
-                return resp.status(500).json({ MENSAGEM: 'ERRO AO EXCLUIR CONTATO' });
-            }
-            return resp.status(500).json({ MENSAGEM: 'ERRO AO EXCLUIR CONTATO' });
+        const { id } = req.params;
+        const situation = await contactdao_1.default.delete(Number(id));
+        if (situation) {
+            return resp
+                .status(204)
+                .json({ MENSAGEM: 'CONTATO EXCLUIDO COM SUCESSO' });
         }
         return resp.status(500).json({ MENSAGEM: 'ERRO AO EXCLUIR CONTATO' });
     }

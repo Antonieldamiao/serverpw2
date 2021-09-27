@@ -16,7 +16,7 @@ routes.post('/contact/add', ContactCtrl.add);
 routes.post('/contact/search', ContactCtrl.search);
 routes.post('/contact/list', ContactCtrl.list);
 routes.put('/contact/update', ContactCtrl.update);
-routes.delete('/contact/delete', ContactCtrl.delete);
+routes.delete('/contact/delete/:id', ContactCtrl.delete);
 
 /* ROUTES ADMINISTRATOR */
 routes.post('/administrator/login', AdministratorCtrl.login);

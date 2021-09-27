@@ -19,7 +19,7 @@ routes.post('/contact/add', contactctrl_1.default.add);
 routes.post('/contact/search', contactctrl_1.default.search);
 routes.post('/contact/list', contactctrl_1.default.list);
 routes.put('/contact/update', contactctrl_1.default.update);
-routes.delete('/contact/delete', contactctrl_1.default.delete);
+routes.delete('/contact/delete/:id', contactctrl_1.default.delete);
 /* ROUTES ADMINISTRATOR */
 routes.post('/administrator/login', administratorctrl_1.default.login);
 routes.post('/administrator/add', administratorctrl_1.default.add);

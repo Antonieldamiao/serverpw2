@@ -62,19 +62,12 @@ export default class ContactCtrl {
   }
 
   public static async delete(req: Request, resp: Response): Promise<Response> {
-    const { id, token } = req.body;
-    const data = decryptObject(token) as UserI;
-    if (data != null) {
-      if (verifyToken(`${data.token}`)) {
-        const situation = await ContactDao.delete(Number(id));
-        if (situation) {
-          return resp
-            .status(204)
-            .json({ MENSAGEM: 'CONTATO EXCLUIDO COM SUCESSO' });
-        }
-        return resp.status(500).json({ MENSAGEM: 'ERRO AO EXCLUIR CONTATO' });
-      }
-      return resp.status(500).json({ MENSAGEM: 'ERRO AO EXCLUIR CONTATO' });
+    const { id } = req.params;
+    const situation = await ContactDao.delete(Number(id));
+      if (situation) {
+        return resp
+          .status(204)
+          .json({ MENSAGEM: 'CONTATO EXCLUIDO COM SUCESSO' });
     }
     return resp.status(500).json({ MENSAGEM: 'ERRO AO EXCLUIR CONTATO' });
   }
