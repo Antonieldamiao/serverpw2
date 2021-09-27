@@ -38,7 +38,7 @@ class ContactDao {
     }
     static async delete(id) {
         try {
-            await contact_1.default.destroy({ where: { id: id } });
+            await contact_1.default.destroy({ where: { id: Number(id) } });
             return true;
         }
         catch (err) {
