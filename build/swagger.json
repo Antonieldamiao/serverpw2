@@ -95,17 +95,14 @@
             "delete": {
                 "description": "Deleta um contato existente da lista",
                 "operationId": "contactDelete",
-                "parameters": [],
-                "required": true,
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/ContactDeleteWithToken"
-                            }
-                        }
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true
                     }
-                },
+                ],
+                "required": true,
                 "responses": {
                     "204": {
                         "description": "RESPOSTA AO SE CONSEGUIR EXCLUIR UM CONTATO EXISTENTE NA LISTA"
