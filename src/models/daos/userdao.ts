@@ -62,7 +62,8 @@ export default class UserDao {
   public static async listContacts(id: string): Promise<Model | null> {
     try {
       return await User.findByPk(id, {
-        include: [{ model: Contact, as: 'contacts' }],
+        include: [{ model: Contact, as: 'contacts'}],
+        order:[[{model: Contact, as: 'contacts'}, 'id', 'ASC']]
       });
     } catch (err) {
       console.log(err);

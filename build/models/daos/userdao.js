@@ -65,6 +65,7 @@ class UserDao {
         try {
             return await user_1.default.findByPk(id, {
                 include: [{ model: contact_1.default, as: 'contacts' }],
+                order: [[{ model: contact_1.default, as: 'contacts' }, 'id', 'ASC']]
             });
         }
         catch (err) {
