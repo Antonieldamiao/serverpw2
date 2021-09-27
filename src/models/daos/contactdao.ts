@@ -39,9 +39,9 @@ export default class ContactDao {
     }
   }
 
-  public static async delete(id: number): Promise<boolean> {
+  public static async delete(id: string): Promise<boolean> {
     try {
-      await Contact.destroy({ where: { id: id } });
+      await Contact.destroy({ where: { id: Number(id) } });
       return true;
     } catch (err) {
       return false;

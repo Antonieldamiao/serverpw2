@@ -63,7 +63,7 @@ export default class ContactCtrl {
 
   public static async delete(req: Request, resp: Response): Promise<Response> {
     const { id } = req.params;
-    const situation = await ContactDao.delete(Number(id));
+    const situation = await ContactDao.delete(id);
       if (situation) {
         return resp
           .status(204)
